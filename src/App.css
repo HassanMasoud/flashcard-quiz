@@ -12,6 +12,13 @@ body {
   background-color: white;
   height: 150px;
   width: 150px;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0));
+  transform-style: preserve-3d;
+  transition: 150ms;
+}
+
+.card.flip {
+  --rotate-y: 180deg;
 }
 
 .card .front,
