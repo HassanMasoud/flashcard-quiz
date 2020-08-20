@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlashcardList from "./FlashcardList";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+
+  useEffect(() => {
+    axios
+      .get("https://opentdb.com/api.php?amount=10")
+      .then((res) => console.log(res.data));
+  }, []);
+
   return <FlashcardList flashcards={flashcards} />;
 }
 
