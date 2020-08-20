@@ -19,6 +19,11 @@ export default function Flashcard({ flashcard }) {
     flashcard.options,
   ]);
 
+  useEffect(() => {
+    window.addEventListener("resize", setMaxHeight);
+    return () => window.removeEventListener("resize", setMaxHeight);
+  }, []);
+
   return (
     <div
       onClick={() => setFlip(!flip)}
